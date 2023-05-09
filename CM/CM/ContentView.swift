@@ -13,25 +13,42 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack{
-            VStack {
-                Rectangle()
-                    .fill(Color("rosinha"))
-                    .frame(width: 400, height: 200)
-                    .ignoresSafeArea()
+            VStack{
+                VStack(spacing: -60){
+                    ZStack{
+                        Rectangle()
+                            .fill(Color("rosinha"))
+                            .frame(width: 400, height: 200)
+                            .ignoresSafeArea()
+                        Text("Conecte Mãe")
+                            .font(
+                                .custom(
+                                    "Arial",
+                                    fixedSize: 50)
+                                .weight(.light)
+                            )
+                            .padding(.bottom)
+                            .foregroundColor(.black)
+                    }
+                    Image("ultra-som")
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0.5)
+                }
                 Spacer()
                 TextField("Usuario...", text: $usuario)
                     .background(.white)
                     .cornerRadius(5)
                     .padding()
                     .multilineTextAlignment(.center)
-                    .shadow(radius: 10)
+                    .shadow(radius: 8)
 
                 TextField("Senha...", text: $senha)
                     .background(.white)
                     .cornerRadius(5)
                     .padding()
                     .multilineTextAlignment(.center)
-                    .shadow(radius: 10)
+                    .shadow(radius: 8)
 
                 Spacer()
                 NavigationLink(destination: TabViewView()){
@@ -41,7 +58,7 @@ struct ContentView: View {
                             .frame(width:300, height: 70)
                             .overlay(
                                             RoundedRectangle(cornerRadius: 20)
-                                                .stroke(Color.black, lineWidth: 2)
+                                                .stroke(Color.black, lineWidth: 0.4)
                                         )
                             
                         Text("Login")
